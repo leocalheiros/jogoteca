@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/jogoteca'
 
 db = SQLAlchemy(app)
-class Jogo(db.Model):
+class Jogo(db.Model):    #classe pra criar as tabelas, precisa ser db.Model
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(50), nullable=False)
     categoria = db.Column(db.String(40), nullable=False)
