@@ -51,4 +51,4 @@ Clique no botão "Logout" para realizar o logout na página.
 ```
 
 ## Vídeo de usabilidade:
-https://github.com/leocalheiros/jogoteca/assets/123272507/cf1b41d0-faa8-45dc-a9ac-ac83c8743c15
+https://github.com/leocalheiros/jogoteca/assets/123272507/c6f9264a-4e99-4949-8e32-a75944c2d756
