@@ -1,0 +1,3 @@
+{%....%}: usado para inserir estruturas Python dentro de um arquivo html;
+{{....}}: usado para facilitar a exibição de código python como um output em um template HTML. Alternativa: {% print(....) %};
+{#....#}: usado para adicionar comentários que não serão exibidos no output do template HTML.
