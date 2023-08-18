@@ -49,3 +49,6 @@ Clique no botão "Deletar" para excluir um jogo existente.
 Clique no botão "Novo Jogo" para adicionar um novo jogo à lista.
 Clique no botão "Logout" para realizar o logout na página.
 ```
+
+## Vídeo de usabilidade:
+https://github.com/leocalheiros/jogoteca/assets/123272507/cf1b41d0-faa8-45dc-a9ac-ac83c8743c15
