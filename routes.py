@@ -129,3 +129,16 @@ def api_jogos():
         }
         lista_jogos.append(jogo_dict)
     return jsonify(lista_jogos)
+
+@app.route('/api/usuarios', methods=['GET'])
+def api_usuarios():
+    usuarios = Usuario.query.all()
+    lista_usuarios = []
+
+    for usuario in usuarios:
+        usuario_dict = {
+            'nome' : usuario.nome,
+            'nickname' : usuario.nickname
+        }
+        lista_usuarios.append(usuario_dict)
+    return jsonify(lista_usuarios)
