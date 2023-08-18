@@ -48,7 +48,12 @@ Clique no botão "Editar" para editar um jogo existente.
 Clique no botão "Deletar" para excluir um jogo existente.
 Clique no botão "Novo Jogo" para adicionar um novo jogo à lista.
 Clique no botão "Logout" para realizar o logout na página.
+Consulta dos usuários e jogos via API
 ```
+
+## Endpoints da API
+- **GET api/jogos: consulta todos os jogos cadastrados juntamente com suas características
+- **GET api/usuarios: consulta todos os usuários cadastrados 
 
 ## Vídeo de usabilidade:
 https://github.com/leocalheiros/jogoteca/assets/123272507/c6f9264a-4e99-4949-8e32-a75944c2d756
