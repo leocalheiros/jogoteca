@@ -35,8 +35,8 @@ def criar():
 
 @app.route('/editar/<int:id>')   #colocamos o id <id> aqui entre chaves pra ele reconhecer na url
 def editar(id):    #instanciamos o id aqui também
-    if 'usuario_logado' not in session or session['usuario_logado'] == None:   #verificar se tem algum usuario logado, se não tiver vai pro login
-        return redirect(url_for('login', proxima=url_for('editar')))   #se o usuario tentar acessar a novo sem autenticar, ele vai criar um parametro de proxima página e dps q o usuario logar vai pro novo
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:   #verificar se tem algum usuario logado, se não tiver vai pro login
+        return redirect(url_for('login'))   #se o usuario tentar acessar a novo sem autenticar, ele vai criar um parametro de proxima página e dps q o usuario logar vai pro novo
 
     jogo = Jogo.query.filter_by(id=id).first()   #buscar o jogo pelo id instanciado
 
@@ -56,7 +56,7 @@ def atualizar():
 
 @app.route('/deletar/<int:id>')
 def deletar(id):
-    if 'usuario_logado' not in session or session['usuario_logado'] == None:   #verificar se tem algum usuario logado, se não tiver vai pro login
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:   #verificar se tem algum usuario logado, se não tiver vai pro login
         return redirect(url_for('login'))   #se o usuario tentar acessar a novo sem autenticar, ele vai criar um parametro de proxima página e dps q o usuario logar vai pro novo
 
     Jogo.query.filter_by(id=id).delete()
@@ -85,6 +85,27 @@ def autenticar():
     else:
         flash('Usuário não logado!')
         return redirect(url_for('login')) #coloca a função que instancia a página
+
+@app.route('/cadastrar-usuario', methods=['GET', 'POST'])
+def cadastro():
+    if 'usuario_logado' in session and session['usuario_logado'] is not None:  # Verifica se o usuário já está logado
+        flash('Você já está logado, por isso não é possível acessar o cadastro.')
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        nome = request.form['nome']
+        nickname = request.form['nickname']
+        senha = request.form['senha']
+
+        novo_usuario = Usuario(nome=nome, nickname=nickname, senha=senha)
+        db.session.add(novo_usuario)
+        db.session.commit()
+
+        flash('Usuário cadastrado com sucesso!')
+        return redirect(url_for('login'))
+
+    return render_template('cadastro.html', titulo='Cadastro de Usuário')
+
 
 @app.route('/logout')
 def logout():

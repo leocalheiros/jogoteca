@@ -5,15 +5,15 @@
           <input type="hidden" name="id" value="{{ jogo.id }}">
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" value="{{ jogo.nome }}">  <!-- vai puxar o nome do banco de dados!-->
+            <input type="text" id="nome" name="nome" class="form-control" value="{{ jogo.nome }}" required>  <!-- vai puxar o nome do banco de dados!-->
           </div>
           <div class="form-group">
             <label for="categoria">Categoria</label>
-            <input type="text" id="categoria" name="categoria" class="form-control" value="{{ jogo.categoria }}">
+            <input type="text" id="categoria" name="categoria" class="form-control" value="{{ jogo.categoria }}" required>
           </div>
           <div class="form-group">
             <label for="console">Console</label>
-            <input type="text" id="console" name="console" class="form-control" value="{{ jogo.console }}">
+            <input type="text" id="console" name="console" class="form-control" value="{{ jogo.console }}" required>
           </div>
           <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
         </fieldset>
