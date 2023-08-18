@@ -1,6 +1,8 @@
 from flask import render_template, request, redirect, session, flash, url_for #request é pra pegar informações do formulário, redirect é pra fazer redirecionamento
 from jogoteca import app, db
 from models import Jogo, Usuario
+from flask import jsonify
+import json
 
 #session permite manter as informações através dos cookies do navegador
 #flash é pra mostrar mensagens rápidas
@@ -112,3 +114,18 @@ def logout():
     session['usuario_logado'] = None
     flash('Logout efetuado com sucesso!')
     return redirect(url_for('index'))
+
+@app.route('/api/jogos', methods=['GET'])
+def api_jogos():
+    jogos = Jogo.query.all()
+    lista_jogos = []
+
+    for jogo in jogos:
+        jogo_dict = {
+            'id': jogo.id,
+            'nome' : jogo.nome,
+            'categoria' : jogo.categoria,
+            'console' : jogo.console
+        }
+        lista_jogos.append(jogo_dict)
+    return jsonify(lista_jogos)
