@@ -27,7 +27,7 @@ def criar():
     jogo = Jogo.query.filter_by(nome=nome).first()
     if jogo:
         flash('O jogo já é existente na lista.')
-        return redirect(url_for(index))
+        return redirect(url_for('index'))
 
     novo_jogo = Jogo(nome=nome, categoria=categoria, console=console)
     db.session.add(novo_jogo)   #adicionar esse novo jogo no banco de dados
